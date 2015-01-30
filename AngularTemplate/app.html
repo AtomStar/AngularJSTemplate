@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <title>Angular Template</title>
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="vendor/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="vendor/angular-ui-grid/ui-grid.min.js"></script>
+    <script src="vendor/toastr/toastr.min.js"></script>
+    <script src="vendor/lodash/lodash.min.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/classes/customer.js"></script>
+
+    <script src="js/controllers/customerCtrl.js"></script>
+
+    <script src="js/services/customerSrv.js"></script>
+    <script src="js/services/notifySrv.js"></script>
+    <script src="js/services/dataSrv.js"></script>
+
+    <link rel="stylesheet" href="vendor/angular-ui-grid/ui-grid.min.css" />
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="vendor/toastr/toastr.min.css" />
+
+</head>
+<body>
+    <div class="container" ng-controller="customerCtrl as custCtr">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <h2>Search Customer</h2>
+                <label class="control-label col-xs-2">Last Name</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" placeholder="Last Name" ng-model="custCtr.LastName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-2">Age</label>
+                <div class="col-xs-6">
+                    <input type="number" class="form-control" placeholder="Age" ng-model="custCtr.Age">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <button class="btn btn-primary" ng-click="custCtr.customerSearch()">Search</button>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label for="inputEmail" class="control-label col-xs-2">Results</label>
+                <div class="col-xs-6">
+                    <div ui-grid="custCtr.gridOpts" ui-grid-selection></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <h2>Customer</h2>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-2">First Name</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" placeholder="First Name" ng-model="custCtr.customer.FirstName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-2">Last Name</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" placeholder="Last Name" ng-model="custCtr.customer.LastName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-2">Age</label>
+                <div class="col-xs-6">
+                    <input type="number" class="form-control" placeholder="Age" ng-model="custCtr.customer.Age">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-1">
+                    <button class="btn btn-primary" ng-click="custCtr.saveCustomer()">Save</button>
+                </div>
+                <div class="col-xs-1">
+                    <button class="btn btn-primary" ng-click="custCtr.addCustomer()">Add</button>
+                </div>
+                <div class="col-xs-1">
+                    <button class="btn btn-primary" ng-click="custCtr.deleteCustomer()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
